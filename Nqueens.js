@@ -1,9 +1,9 @@
 
 
 var old_table = document.createElement("table");
-for (var i = 1; i < 9; i++) {
+for (var i = 1; i < 1; i++) {
     var tr = document.createElement('tr');
-    for (var j = 1; j < 9; j++) {
+    for (var j = 1; j < 1; j++) {
         var td = document.createElement('td');
         if (i%2 == j%2) {
             td.className = "white";
@@ -22,7 +22,11 @@ function addtoev() {
   for (var s = 0; s < set.length; s++) {
     set[s].addEventListener("click", function() {
 
-        
+        document.body.style.backgroundColor = "#EFC050";
+
+        var loading_remove = document.querySelector("#loading");
+        loading_remove.classList.remove("lds-grid");
+
         var messagedisplay = document.querySelector("#message");
         messagedisplay.textContent = "";
 
@@ -68,6 +72,7 @@ function addtoev() {
     for(var i = 0; i < select.length; i++)
     {
         select[i].addEventListener("click", function(){
+            messagedisplay.textContent = "";
             if(this.classList.contains("black_queen")){
                 this.classList.remove("black_queen");
             }
@@ -101,11 +106,30 @@ function addtoev() {
             row[i] = 0;
         }
 
-        var flag = 1;
+        var flag = 0;
+        var count = 0;
+        var goahead = 0;
 
+         for(var i = 0; i < select.length; i++)
+        {
+            if(select[i].classList.contains("black_queen") || select[i].classList.contains("white_queen"))
+                count++;
+        }
+
+        if(count == size)
+            goahead = 1;
+        else
+        {
+            goahead = 0;
+            alert("Please place required number of queens");
+        }
+        if(goahead)
+        {
+        flag = 1;
         for(var i = 0; i < select.length; i++)
         {
             if(select[i].classList.contains("black_queen") || select[i].classList.contains("white_queen")){
+                count++;
                 var n = select[i].id;
                 console.log(n);
                 console.log(Math.floor(n/10));
@@ -119,6 +143,7 @@ function addtoev() {
                 else
                 if(row[(n%10)] == 1)
                 {
+                    messagedisplay.style.color = "red";
                     messagedisplay.textContent = "WRONG";
                     flag = 0;
                     break;
@@ -126,6 +151,7 @@ function addtoev() {
                 else
                 if(right_diagonal[(Math.floor(n/10)) + (n%10)] == 1)
                 {
+                    messagedisplay.style.color = "red";
                     messagedisplay.textContent = "WRONG";
                     flag = 0;
                     break;
@@ -133,6 +159,7 @@ function addtoev() {
                 else
                 if(left_diagonal[(Math.floor(n/10)) - (n%10) + size - 1] == 1)
                 {
+                    messagedisplay.style.color = "red";
                     messagedisplay.textContent = "WRONG";
                     flag = 0;
                     break;
@@ -146,10 +173,14 @@ function addtoev() {
                 }
             }
         }
-        if(flag)
-            messagedisplay.textContent = "CORRECT";       
-        
+        }
 
+        if(flag)
+        {
+            messagedisplay.style.weight = "heavy";
+            messagedisplay.style.color = "green";
+            messagedisplay.textContent = "CORRECT";             
+        }
     });
 
 
