@@ -28,7 +28,8 @@ function addtoev() {
         loading_remove.classList.remove("lds-grid");
 
         var messagedisplay = document.querySelector("#message");
-        messagedisplay.textContent = "";
+        messagedisplay.style.color = "black"
+        messagedisplay.textContent = "...Start placing Queens...";
 
         var size = this.id;
         //console.log(size);
@@ -92,7 +93,7 @@ function addtoev() {
     }
     
     solution_button.addEventListener("click", function(){
-        //alert("clicked");
+        
         var left_diagonal = [2*size + 1];
         var right_diagonal = [2*size + 1];
         var coloumn = [2*size+1];
@@ -129,13 +130,16 @@ function addtoev() {
         for(var i = 0; i < select.length; i++)
         {
             if(select[i].classList.contains("black_queen") || select[i].classList.contains("white_queen")){
+
                 count++;
                 var n = select[i].id;
-                console.log(n);
+        
                 console.log(Math.floor(n/10));
                 console.log(n%10);
                 if(coloumn[Math.floor(n/10)] == 1)
                 {
+                    messagedisplay.style.weight = "heavy";
+                    messagedisplay.style.color = "red";
                     messagedisplay.textContent = "WRONG";
                     flag = 0;
                     break;
@@ -143,6 +147,7 @@ function addtoev() {
                 else
                 if(row[(n%10)] == 1)
                 {
+                    messagedisplay.style.weight = "heavy";
                     messagedisplay.style.color = "red";
                     messagedisplay.textContent = "WRONG";
                     flag = 0;
@@ -151,6 +156,7 @@ function addtoev() {
                 else
                 if(right_diagonal[(Math.floor(n/10)) + (n%10)] == 1)
                 {
+                    messagedisplay.style.weight = "heavy";
                     messagedisplay.style.color = "red";
                     messagedisplay.textContent = "WRONG";
                     flag = 0;
@@ -159,6 +165,7 @@ function addtoev() {
                 else
                 if(left_diagonal[(Math.floor(n/10)) - (n%10) + size - 1] == 1)
                 {
+                    messagedisplay.style.weight = "heavy";
                     messagedisplay.style.color = "red";
                     messagedisplay.textContent = "WRONG";
                     flag = 0;
