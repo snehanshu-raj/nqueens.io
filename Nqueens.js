@@ -1,5 +1,4 @@
 
-
 var old_table = document.createElement("table");
 for (var i = 1; i < 1; i++) {
     var tr = document.createElement('tr');
@@ -16,38 +15,44 @@ for (var i = 1; i < 1; i++) {
 }
 document.body.appendChild(old_table);
 
+
+
 function addtoev() {
 
   var set = document.getElementsByTagName("button");
   for (var s = 0; s < set.length; s++) {
     set[s].addEventListener("click", function() {
 
-        document.body.style.backgroundColor = "#EFC050";
+        document.body.classList.add("bodyafter");
+
 
         var loading_remove = document.querySelector("#loading");
         loading_remove.classList.remove("lds-grid");
 
         var messagedisplay = document.querySelector("#message");
-        messagedisplay.style.color = "black"
-        messagedisplay.textContent = "...Start placing Queens...";
+        messagedisplay.style.color = "white";
+        messagedisplay.style.backgroundColor = "none";
+        messagedisplay.textContent = "Start placing Queens";
 
         var size = this.id;
-        //console.log(size);
+        
         var check_solution_button = document.querySelector("#solution");
         if(check_solution_button){
             check_solution_button.parentNode.removeChild(check_solution_button);
 
              var solution_button = document.createElement("button");
              solution_button.id = "solution";
-             solution_button.textContent = "Check Solution";
+             solution_button.textContent = "Check Inputs";
              document.body.appendChild(solution_button);
         }
         else{
             var solution_button = document.createElement("button");
             solution_button.id = "solution";
-            solution_button.textContent = "Check Solution";
+            solution_button.textContent = "Check Inputs";
             document.body.appendChild(solution_button);
         }
+
+
 
         var new_table = document.createElement("table");
 		for (var i = 1; i <= this.id; i++) {
@@ -94,6 +99,7 @@ function addtoev() {
     
     solution_button.addEventListener("click", function(){
         
+        var div;
         var left_diagonal = [2*size + 1];
         var right_diagonal = [2*size + 1];
         var coloumn = [2*size+1];
@@ -133,41 +139,53 @@ function addtoev() {
 
                 count++;
                 var n = select[i].id;
-        
-                console.log(Math.floor(n/10));
-                console.log(n%10);
+                var cclass = select[i].class;
+
+               // console.log(Math.floor(n/10));
+                //console.log(n%10);
                 if(coloumn[Math.floor(n/10)] == 1)
                 {
+                   // messagedisplay.style.backgroundColor = "black";
+                    messagedisplay.style.fontFamily = "sans-serif";
                     messagedisplay.style.weight = "heavy";
                     messagedisplay.style.color = "red";
-                    messagedisplay.textContent = "WRONG";
+                    messagedisplay.textContent = " WRONG ";
                     flag = 0;
+                    
                     break;
                 }
                 else
                 if(row[(n%10)] == 1)
                 {
+                   // messagedisplay.style.backgroundColor = "black";
+                    messagedisplay.style.fontFamily = "sans-serif";
                     messagedisplay.style.weight = "heavy";
                     messagedisplay.style.color = "red";
-                    messagedisplay.textContent = "WRONG";
+                    messagedisplay.textContent = " WRONG ";
                     flag = 0;
                     break;
                 }
                 else
                 if(right_diagonal[(Math.floor(n/10)) + (n%10)] == 1)
                 {
+                    //messagedisplay.style.backgroundColor = "black";
+                    select[i].style.color = "red";
+                    messagedisplay.style.fontFamily = "sans-serif";
                     messagedisplay.style.weight = "heavy";
                     messagedisplay.style.color = "red";
-                    messagedisplay.textContent = "WRONG";
+                    messagedisplay.textContent = " WRONG ";
                     flag = 0;
                     break;
                 }
                 else
                 if(left_diagonal[(Math.floor(n/10)) - (n%10) + size - 1] == 1)
                 {
+                   // messagedisplay.style.backgroundColor = "black";
+               
+                    messagedisplay.style.fontFamily = "sans-serif";
                     messagedisplay.style.weight = "heavy";
                     messagedisplay.style.color = "red";
-                    messagedisplay.textContent = "WRONG";
+                    messagedisplay.textContent = " WRONG ";
                     flag = 0;
                     break;
                 }
@@ -182,11 +200,14 @@ function addtoev() {
         }
         }
 
+       // select[i].classList.add("cclass");
         if(flag)
         {
+           // messagedisplay.style.backgroundColor = "black";
+            messagedisplay.style.fontFamily = "sans-serif";
             messagedisplay.style.weight = "heavy";
             messagedisplay.style.color = "green";
-            messagedisplay.textContent = "CORRECT";             
+            messagedisplay.textContent = " CORRECT ";             
         }
     });
 
