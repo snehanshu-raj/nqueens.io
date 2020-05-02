@@ -30,7 +30,7 @@ function addtoev() {
         loading_remove.classList.remove("lds-grid");
 
         var messagedisplay = document.querySelector("#message");
-        messagedisplay.style.color = "white";
+        messagedisplay.style.color = "black";
         messagedisplay.style.backgroundColor = "none";
         messagedisplay.textContent = "Start placing Queens";
 
@@ -146,10 +146,11 @@ function addtoev() {
                 if(coloumn[Math.floor(n/10)] == 1)
                 {
                    // messagedisplay.style.backgroundColor = "black";
-                    messagedisplay.style.fontFamily = "sans-serif";
+                    messagedisplay.style.fontFamily = "Lucida Console";
+                    messagedisplay.style.fontStyle ="normal";
                     messagedisplay.style.weight = "heavy";
-                    messagedisplay.style.color = "red";
-                    messagedisplay.textContent = " WRONG ";
+                    messagedisplay.style.color = "darkred";
+                    messagedisplay.textContent = " Wrong ";
                     flag = 0;
                     
                     break;
@@ -158,10 +159,11 @@ function addtoev() {
                 if(row[(n%10)] == 1)
                 {
                    // messagedisplay.style.backgroundColor = "black";
-                    messagedisplay.style.fontFamily = "sans-serif";
+                    messagedisplay.style.fontStyle ="normal";
+                    messagedisplay.style.fontFamily = "Lucida Console";
                     messagedisplay.style.weight = "heavy";
-                    messagedisplay.style.color = "red";
-                    messagedisplay.textContent = " WRONG ";
+                    messagedisplay.style.color = "darkred";
+                    messagedisplay.textContent = " Wrong ";
                     flag = 0;
                     break;
                 }
@@ -170,10 +172,11 @@ function addtoev() {
                 {
                     //messagedisplay.style.backgroundColor = "black";
                     select[i].style.color = "red";
-                    messagedisplay.style.fontFamily = "sans-serif";
+                    messagedisplay.style.fontStyle ="normal";
+                    messagedisplay.style.fontFamily = "Lucida Console";
                     messagedisplay.style.weight = "heavy";
-                    messagedisplay.style.color = "red";
-                    messagedisplay.textContent = " WRONG ";
+                    messagedisplay.style.color = "darkred";
+                    messagedisplay.textContent = " Wrong ";
                     flag = 0;
                     break;
                 }
@@ -182,10 +185,11 @@ function addtoev() {
                 {
                    // messagedisplay.style.backgroundColor = "black";
                
-                    messagedisplay.style.fontFamily = "sans-serif";
+                    messagedisplay.style.fontFamily = "Lucida Console";
+                    messagedisplay.style.fontStyle ="normal";
                     messagedisplay.style.weight = "heavy";
-                    messagedisplay.style.color = "red";
-                    messagedisplay.textContent = " WRONG ";
+                    messagedisplay.style.color = "darkred";
+                    messagedisplay.textContent = " Wrong ";
                     flag = 0;
                     break;
                 }
@@ -203,11 +207,12 @@ function addtoev() {
        // select[i].classList.add("cclass");
         if(flag)
         {
-           // messagedisplay.style.backgroundColor = "black";
-            messagedisplay.style.fontFamily = "sans-serif";
+          //  messagedisplay.style.backgroundColor = "white";
+            messagedisplay.style.fontStyle ="normal";
+            messagedisplay.style.fontFamily = "Lucida Console";
             messagedisplay.style.weight = "heavy";
             messagedisplay.style.color = "green";
-            messagedisplay.textContent = " CORRECT ";             
+            messagedisplay.textContent = " Correct ";             
         }
     });
 

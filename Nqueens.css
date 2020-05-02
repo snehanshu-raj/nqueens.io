@@ -6,14 +6,16 @@ body
 
 .bodyafter
 {
-	background-color: #2b4162;
-	background-image: linear-gradient(315deg, #2b4162 0%, #000000 74%);
+	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 #stripe
 {
-	background-color: #ffeaa7;
-	background-image: linear-gradient(315deg, #ffeaa7 0%, #000000 74%);
+	background-color: #fec84e;
+	background-image: linear-gradient(315deg, #fec84e 0%, #ffdea8 74%);
 	height: 50px;
 	text-align: center;
 	color: black;
@@ -119,7 +121,7 @@ button
 
 button:hover
 {
-	color: green;
+	color: red;
 	background: black;
 	transform:scale(1.3,1.3);
     -webkit-transform:scale(1.3,1.3);
@@ -134,8 +136,7 @@ table
 
 h1
 {
-	background-color: #d2a813;
-	background-image: linear-gradient(315deg, #d2a813 0%, #000000 74%);
+	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 	font-weight: normal;
 	line-height: 1.1;
 	font-size: 70px;
