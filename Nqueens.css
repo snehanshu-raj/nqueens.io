@@ -12,6 +12,12 @@ body
 	background-attachment: fixed;
 }
 
+#introduction
+{
+	color: white;
+	font-size: 30px;
+}
+
 #stripe
 {
 	background-color: #fec84e;
