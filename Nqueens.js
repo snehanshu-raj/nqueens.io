@@ -143,6 +143,7 @@ function addtoev() {
     hint_button.addEventListener("click", function(){
         var all = Math.pow(2, size) - 1;
         var count = 0;
+        hint_answer = 0;
 
         total_solutions(0, 0, 0);
         alert("There are " + hint_answer + " number of solutions!");
